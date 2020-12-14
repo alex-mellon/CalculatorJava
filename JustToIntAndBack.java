@@ -20,7 +20,7 @@ public class JustToIntAndBack {
                 int answer = Calculation.Calculation(num1, num2, operation);
                 ans = RomanToArab.BackToRoman(answer);
             } else {
-                throw new MyError("Вы ввели неправильные значения!");
+                throw new MyError("Вы ввели неправильные значения!", -1;
             }
         } 
         return ans;
