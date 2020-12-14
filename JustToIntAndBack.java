@@ -2,7 +2,7 @@ package com.company;
 
 public class JustToIntAndBack {
 
-    public static String JustToIntAndBack(String number1, String number2, char operation) {
+    public static String JustToIntAndBack(String number1, String number2, char operation) throws MyError{
         int num1, num2;
         String ans = new String();
         if ((StrArabToInt(number1) != -1) && (StrArabToInt(number2) != -1)) {
@@ -20,11 +20,9 @@ public class JustToIntAndBack {
                 int answer = Calculation.Calculation(num1, num2, operation);
                 ans = RomanToArab.BackToRoman(answer);
             } else {
-                throw new Error("Вы ввели неправильные значения!");
+                throw new MyError("Вы ввели неправильные значения!");
             }
-        } else {
-            throw new Error("Вы ввели неправильные значения!");
-        }
+        } 
         return ans;
     }
 
@@ -46,4 +44,14 @@ public class JustToIntAndBack {
         }
     }
 
+}
+class MyError extends Exception{
+
+    private int number;
+    public int getNumber(){return number;}
+    public MyError(String message,int num){
+
+        super(message);
+        number=num;
+    }
 }
